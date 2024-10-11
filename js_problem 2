@@ -1,0 +1,32 @@
+const names = {
+    group1: {
+        1: { name: "Ganesh", age: 24 },
+        2: { name: "Nagendra", age: 26 }
+    },
+    group2: {
+        3: { name: "Chandu", age: 28 },
+        4: { name: "Rajesh", age: 30 }
+    },
+    group3: {
+        4: { name: "Vasu", age: 55 },
+        5: { name: "Ramesh", age: 67 }
+    }
+};
+
+function findNameByAge(age) {
+    for (const group in names) {
+        for (const personId in names[group]) {
+            const person = names[group][personId];
+            if (person.age === age) {
+                return person.name; 
+            }
+        }
+    }
+    
+    return null; 
+}
+
+// Example usage
+console.log(findNameByAge(67)); 
+console.log(findNameByAge(55)); 
+console.log(findNameByAge(35)); 
